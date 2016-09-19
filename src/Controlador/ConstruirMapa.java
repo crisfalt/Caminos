@@ -58,11 +58,23 @@ public class ConstruirMapa {
             }
         }
         objCamino = new Camino( distancia , objCiudadA , objCiudadB);
+        caminos.add(objCamino);
     }
     
     public void definir() {
         objMapa.setCaminos(caminos);
         objMapa.setCiudades(ciudades);
+    }
+    
+    public void imprimir() {
+        for( int i = 0;i < objMapa.getCiudades().size() ; i++ ) {
+            System.out.println(objMapa.getCiudades().get(i).getNombre().toString());
+        }
+        for( int j = 0; j < objMapa.getCaminos().size() ; j++ ) {
+            System.out.println("Nodo I : " + objMapa.getCaminos().get(j).getCiudadA().getNombre().toString());
+            System.out.println("Nodo F : " + objMapa.getCaminos().get(j).getCiudadB().getNombre().toString());
+            System.out.println("distancia : " + objMapa.getCaminos().get(j).getDistancia());
+        }
     }
     
 }

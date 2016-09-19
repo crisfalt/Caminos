@@ -28,4 +28,12 @@ public class Mapa {
         this.ciudades = nuevasCiudades;
     }
     
+    public List<Camino> getCaminos() {
+        return this.caminos;
+    }
+    
+    public List<Ciudad> getCiudades() {
+        return this.ciudades;
+    }
+    
 }

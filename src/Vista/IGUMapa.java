@@ -28,6 +28,8 @@ public class IGUMapa {
     private String nombreA;
     private String nombreB;
     private int distancia;
+    private String nodoInicial;
+    private String nodoFinal;
 
     
     public IGUMapa() {
@@ -56,6 +58,11 @@ public class IGUMapa {
             objConstruirMapa.agregarCamino(nombreA,nombreB,distancia);//asignamos los caminos
         }
         objConstruirMapa.definir();
+        System.out.print("Ciudad Origen : " );
+        nodoInicial = entradaUsuario.next();
+        System.out.print("Ciudad Destino : " );
+        nodoFinal = entradaUsuario.next();
+        objConstruirMapa.imprimir();
     }
     
 }
