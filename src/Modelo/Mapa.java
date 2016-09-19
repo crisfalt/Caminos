@@ -20,4 +20,12 @@ public class Mapa {
         
     }
     
+    public void setCaminos( final List<Camino> nuevosCaminos ) {
+        this.caminos = nuevosCaminos;
+    }
+    
+    public void setCiudades( final List<Ciudad> nuevasCiudades ) {
+        this.ciudades = nuevasCiudades;
+    }
+    
 }

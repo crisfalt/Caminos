@@ -5,8 +5,7 @@
  */
 package Vista;
 
-import Controlador.AsignarCaminos;
-import Controlador.AsignarCiudades;
+import Controlador.ConstruirMapa;
 import Modelo.Camino;
 import Modelo.Ciudad;
 import java.util.Scanner;
@@ -20,8 +19,8 @@ public class IGUMapa {
 //    private Camino objCaminoIN;
 //    private Ciudad objCiudadIN;
     private Scanner entradaUsuario;
-    private AsignarCaminos objCaminoIN;
-    private AsignarCiudades objCiudadIN;
+    private ConstruirMapa objConstruirMapa;
+    
     
     // Variables
     private int cantCiudades;
@@ -33,6 +32,7 @@ public class IGUMapa {
     
     public IGUMapa() {
         entradaUsuario = new Scanner(System.in);
+        objConstruirMapa = new ConstruirMapa();
         cantCiudades = 0;
         cantCaminos = 0;
     }
@@ -41,22 +41,21 @@ public class IGUMapa {
         System.out.println("Cantidad de ciudades : ");
         cantCiudades = entradaUsuario.nextInt();
         for( int i = 0 ; i < cantCiudades ; i++ ) {
-            objCiudadIN = new AsignarCiudades();
             System.out.println("Nombre Ciudad " + (i+1)+ " : ");
-            objCiudadIN.asignar(entradaUsuario.next());//asignamos las ciudades
+            objConstruirMapa.agregarCiudad(entradaUsuario.next());//asignamos las ciudades
         }
         System.out.println("Cantidad de caminos : ");
         cantCaminos = entradaUsuario.nextInt();
         for( int i = 0 ; i < cantCaminos ; i++ ) {
-            objCaminoIN = new AsignarCaminos();
             System.out.println("Ciudad A : " );
             nombreA = entradaUsuario.next();
             System.out.println("Ciudad B : " );
             nombreB = entradaUsuario.next();
-            System.out.println("Distancia : " );
+            System.out.println("Distancia (KM) : " );
             distancia = entradaUsuario.nextInt();
-            objCaminoIN.asignar(distancia,nombreA,nombreB);//asignamos los caminos
+            objConstruirMapa.agregarCamino(nombreA,nombreB,distancia);//asignamos los caminos
         }
+        objConstruirMapa.definir();
     }
     
 }
