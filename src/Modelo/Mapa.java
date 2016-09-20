@@ -36,4 +36,25 @@ public class Mapa {
         return this.ciudades;
     }
     
+    public Camino getCamino( final String nodoA , final String nodoB ) {
+        Camino caminoEncontrado = new Camino();
+        for( int i = 0 ; i < caminos.size() ; i++ ) {
+            if( caminos.get(i).getCiudadA().getNombre().equals(nodoA) && caminos.get(i).getCiudadB().getNombre().equals(nodoB) ) {
+                caminoEncontrado = caminos.get(i);
+            }
+        }
+        return caminoEncontrado;
+    }
+    
+    public Ciudad getCiudad( final String nombre ) {
+        Ciudad ciudad = new Ciudad();
+        for( int i = 0 ; i < ciudades.size() ; i++ ) {
+            if( ciudades.get(i).getNombre().equals(nombre) ) {
+                ciudad = ciudades.get(i);
+            }
+        }
+        return ciudad;
+    }
+    
+    
 }

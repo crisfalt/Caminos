@@ -66,6 +66,10 @@ public class ConstruirMapa {
         objMapa.setCiudades(ciudades);
     }
     
+    public Mapa getMapa() {
+        return objMapa;
+    }
+    
     public void imprimir() {
         for( int i = 0;i < objMapa.getCiudades().size() ; i++ ) {
             System.out.println(objMapa.getCiudades().get(i).getNombre().toString());

@@ -15,6 +15,10 @@ public class Camino {
     private Ciudad objCiudadA;
     private Ciudad objCiudadB;
     
+    public Camino() {
+        
+    }
+    
     public Camino( final int distancia, final Ciudad ciudadA, final Ciudad ciudadB ) {
         this.distancia = distancia;
         this.objCiudadA = ciudadA;

@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.Busquedas;
 import Controlador.ConstruirMapa;
 import Modelo.Camino;
 import Modelo.Ciudad;
@@ -20,6 +21,7 @@ public class IGUMapa {
 //    private Ciudad objCiudadIN;
     private Scanner entradaUsuario;
     private ConstruirMapa objConstruirMapa;
+    private Busquedas objBusquedas;
     
     
     // Variables
@@ -62,7 +64,9 @@ public class IGUMapa {
         nodoInicial = entradaUsuario.next();
         System.out.print("Ciudad Destino : " );
         nodoFinal = entradaUsuario.next();
-        objConstruirMapa.imprimir();
+        objBusquedas = new Busquedas( nodoInicial , nodoFinal , objConstruirMapa.getMapa());
+        objBusquedas.busquedaAEstrella();
+        //objConstruirMapa.imprimir();
     }
     
 }
