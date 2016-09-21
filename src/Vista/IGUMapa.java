@@ -64,9 +64,10 @@ public class IGUMapa {
         nodoInicial = entradaUsuario.next();
         System.out.print("Ciudad Destino : " );
         nodoFinal = entradaUsuario.next();
+        objConstruirMapa.imprimir();
         objBusquedas = new Busquedas( nodoInicial , nodoFinal , objConstruirMapa.getMapa());
         objBusquedas.busquedaAEstrella();
-        //objConstruirMapa.imprimir();
+        
     }
     
 }

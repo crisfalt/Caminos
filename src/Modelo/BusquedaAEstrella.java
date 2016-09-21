@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,30 +28,48 @@ public class BusquedaAEstrella {
         this.cDestino = destino;
         this.origenRuta = cOrigen;
         this.objMapa = mapaIn;
+        rutas = new ArrayList<String>();
+        pesoRuta = new ArrayList<Integer>();
         caminos = objMapa.getCaminos();
         ciudades = objMapa.getCiudades();
     }
     
-    public void iniciarBusqueda() {
-        List<Camino> copia = caminos;
-        int acumulado = 0;
+    public List<Ciudad> getVecinos( final Ciudad ciudadBuscar ,  String rutaIn ) {
+        List<Ciudad> encontrados  = new ArrayList<Ciudad>();
         for( int i = 0 ; i < caminos.size() ; i++ ) {
-            //for( int j = 0 ; j < copia.size() ; j++ ) {
-                if( caminos.get(i).getCiudadA().equals(origenRuta) ) {
-                    if( caminos.get(i).getCiudadB().equals(cDestino) ) {
-                        acumulado += caminos.get(i).getDistancia();
-                    }
-                    else {
-                        acumulado += caminos.get(i).getDistancia();
-                        origenRuta = caminos.get(i).getCiudadB();
-//                        for( int j = 0 ; j < copia.size() ; j++ ) {
-//                            
-//                        }
-                    }
-                }
-            //}
+            if( caminos.get(i).getCiudadA().equals(ciudadBuscar) ) {
+                encontrados.add(caminos.get(i).getCiudadB());
+                rutaIn+=caminos.get(i).getCiudadB().getNombre().toString();
+            }
         }
-        System.out.println( "Acumulado : " + acumulado );
+        return encontrados;
+    }
+    
+    public void sumarRuta( final int peso ) {
+        
+    }
+        
+    
+    public void iniciarBusqueda() {
+            String ruta = cOrigen.getNombre();
+            int acumulado = 0;
+            for( int i = 0 ; i < caminos.size() ; i++ ) {
+                    if( caminos.get(i).getCiudadA().equals(origenRuta) ) {
+                        if( caminos.get(i).getCiudadB().equals(cDestino) ) {
+                            acumulado += caminos.get(i).getDistancia();
+                            ruta+=caminos.get(i).getCiudadB().getNombre();
+                        }
+                        else {
+                            acumulado += caminos.get(i).getDistancia();
+                            ruta+=caminos.get(i).getCiudadB().getNombre();
+                            origenRuta = caminos.get(i).getCiudadB();
+                        }
+                    }
+            }
+
+            System.out.println( "Ruta : " + ruta );
+            System.out.println( "Acumulado : " + acumulado );
+
     }
     
     
